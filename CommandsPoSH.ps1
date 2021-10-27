@@ -51,4 +51,6 @@ Expand-Archive -LiteralPath 'C:\Temp\arquivo.zip' -DestinationPath C:\Temp\Pasta
 Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#OCS Inventory"
 Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "10.242.6.14		ocsinventory-ng"
 
-
+#Este comando adiciona e remove máquinas no AD
+Add-Computer -Domainname bei.local -Credential BEI\leandro.santos -Restart -Force
+Remove-Computer -UnjoinDomaincredential Domain01\Admin01 -PassThru -Verbose -Restart
