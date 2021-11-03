@@ -54,3 +54,9 @@ Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "10.242.
 #Este comando adiciona e remove máquinas no AD
 Add-Computer -Domainname bei.local -Credential BEI\leandro.santos -Restart -Force
 Remove-Computer -UnjoinDomaincredential Domain01\Admin01 -PassThru -Verbose -Restart
+
+#Este comando exibe o espaço em disco disponível
+(Get-WmiObject win32_logicaldisk -filter "DeviceID='C:'" | Select-Object Freespace).FreeSpace/1GB
+
+#Este comando exibe o Sistema Operacional
+Get-WmiObject win32_operatingsystem | ForEach-Object caption
