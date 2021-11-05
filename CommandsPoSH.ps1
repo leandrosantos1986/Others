@@ -60,3 +60,7 @@ Remove-Computer -UnjoinDomaincredential Domain01\Admin01 -PassThru -Verbose -Res
 
 #Este comando exibe o Sistema Operacional
 Get-WmiObject win32_operatingsystem | ForEach-Object caption
+
+#Este comando obtém os grupos e membros do AD
+Get-ADGroup -filter * | sort name | select name
+Get-ADGroupMember -identity "VPN" | select name
