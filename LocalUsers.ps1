@@ -1,0 +1,1 @@
+﻿gwmi win32_UserAccount | Select Name, FullName, Caption, Domain, SID | Export-Csv C:\Temp\LocalUsers.csv

@@ -1,0 +1,1 @@
+﻿add-computer –domainname bei.local -Credential BEI\leandro.santos -restart –force

@@ -1,0 +1,1 @@
+﻿systeminfo | Out-File -FilePath C:\Temp\systeminfo.txt

@@ -1,0 +1,1 @@
+﻿Get-ADUser -Filter * -Properties mail | Where { $_.Enabled -eq $True} | Select Name,samaccountname,mail
