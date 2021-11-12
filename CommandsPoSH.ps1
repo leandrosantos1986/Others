@@ -1,6 +1,7 @@
 #Estes comandos adicionam ou removem entradas no Registro
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\nome_pasta" /v EntradaAqui /t REG_DWORD /d 0 /f
 REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\nome_pasta" /f
+
 #Este seta um valor ao registro existente
 Set-ItemProperty -Path 'HKEY_LOCAL_MACHINE\SOFTWARE\nome_pasta'-name "EntradaAqui" -Value 0
 

@@ -1,6 +1,6 @@
 ﻿function Analyze( $p, $f) {
 
-Get-ItemProperty $p |foreach {
+Get-ItemProperty $p |ForEach-Object {
 
 if (($_.DisplayName) -or ($_.version)) {
 
@@ -28,4 +28,4 @@ $s += Analyze 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' 64
 
 $s += Analyze 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' 32
 
-$s | Sort-Object -Property Name |Export-Csv C:\Temp\InstalledPrograms.csv
+$s | Sort-Object -Property Name |Export-Csv C:\Temp\InstalledPrograms_$(Get-Content env:computername).csv
