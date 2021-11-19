@@ -65,3 +65,22 @@ Get-WmiObject win32_operatingsystem | ForEach-Object caption
 #Este comando obtém os grupos e membros do AD
 Get-ADGroup -filter * | sort name | select name
 Get-ADGroupMember -identity "VPN" | select name
+
+#Este comando certifica que está usando TLS 1.2 para poder usar os pacotes do PowerShell Galery
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+#fonte: https://docs.microsoft.com/pt-br/powershell/module/packagemanagement/?view=powershell-7.1
+
+#Este comando obtém, através do Registro o nome antigo da máquina
+Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\SchedulingAgent' 'OldName'
+#Visão mais completa:
+Get-ItemProperty Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SchedulingAgent
+#Fonte: https://stackoverflow.com/questions/15511809/how-do-i-get-the-value-of-a-registry-key-and-only-the-value-using-powershell
+
+#SMB1 
+#Get 
+Get-SmbServerConfiguration | Format-List EnableSMB1Protocol
+Get-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+#Enable
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+#Disable
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
