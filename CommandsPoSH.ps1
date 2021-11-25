@@ -84,3 +84,6 @@ Get-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 #Disable
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+
+#Obter ID Teamviewer
+Get-ItemPropertyValue 'HKLM:\SOFTWARE\Wow6432Node\TeamViewer\' 'ClientID'
