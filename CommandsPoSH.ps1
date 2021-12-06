@@ -90,3 +90,8 @@ Get-ItemPropertyValue 'HKLM:\SOFTWARE\Wow6432Node\TeamViewer\' 'ClientID'
 
 #Obter Versão do Windows via Registro
 Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\' 'ProductName'
+
+#Enable SafeBoot with Network ATERA
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /v Splashtop Inc. /t REG_DWORD /d 0 /f
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /v AteraAgent /t REG_DWORD /d 0 /f
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /v SplashtopRemoteService /t REG_DWORD /d 0 /f
