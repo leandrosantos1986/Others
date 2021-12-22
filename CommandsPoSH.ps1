@@ -1,6 +1,6 @@
 #Estes comandos adicionam ou removem entradas no Registro
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\nome_pasta" /v EntradaAqui /t REG_DWORD /d 0 /f
-REG DELETE "HKEY_LOCAL_MACHINE\SOFTWARE\nome_pasta" /f
+REG ADD "HKEY_LOCAL_MACHINE\Software\nome_pasta" /v EntradaAqui /t REG_DWORD /d 0 /f
+REG DELETE HKEY_LOCAL_MACHINE\Software\nome_pasta /v /f
 
 #Este seta um valor ao registro existente
 Set-ItemProperty -Path 'HKEY_LOCAL_MACHINE\SOFTWARE\nome_pasta'-name "EntradaAqui" -Value 0
@@ -95,3 +95,6 @@ Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\' 'Pro
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /v Splashtop Inc. /t REG_DWORD /d 0 /f
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /v AteraAgent /t REG_DWORD /d 0 /f
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /v SplashtopRemoteService /t REG_DWORD /d 0 /f
+
+#Ping with timestamp LOG
+Ping.exe -t 192.168.100.41 | ForEach {"{0} - {1}" -f (Get-Date),$_} > C:\Temp\Ping.txt
