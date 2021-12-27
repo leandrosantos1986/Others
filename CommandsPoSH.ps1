@@ -98,3 +98,6 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /
 
 #Ping with timestamp LOG
 Ping.exe -t 192.168.100.41 | ForEach {"{0} - {1}" -f (Get-Date),$_} > C:\Temp\Ping.txt
+
+#Transfer Area Clean or Clipboard Clean
+C:\Windows\System32\cmd.exe /c "echo off | clip"
