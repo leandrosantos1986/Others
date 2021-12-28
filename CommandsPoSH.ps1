@@ -101,3 +101,9 @@ Ping.exe -t 192.168.100.41 | ForEach {"{0} - {1}" -f (Get-Date),$_} > C:\Temp\Pi
 
 #Transfer Area Clean or Clipboard Clean
 C:\Windows\System32\cmd.exe /c "echo off | clip"
+
+#Obter senha Wi-Fi
+netsh wlan show profiles
+netsh wlan show profile name=profilename key=clear
+
+#
