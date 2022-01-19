@@ -106,4 +106,12 @@ C:\Windows\System32\cmd.exe /c "echo off | clip"
 netsh wlan show profiles
 netsh wlan show profile name=profilename key=clear
 
-#
+#Corrige Nomes pastas longos
+Get-ItemPropertyValue 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' 'LongPathsEnabled'
+Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -name 'LongPathsEnabled' -Value 1
+
+#Adicionar dados de proprietário e organização Windows
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -name 'RegisteredOwner' -Value TecnologiaBEI
+Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' 'RegisteredOwner'
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\" -Name RegisteredOrganization -PropertyType String -Value EditoraMAS
+Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' 'RegisteredOrganization'
