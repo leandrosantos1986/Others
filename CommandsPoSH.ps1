@@ -97,7 +97,7 @@ REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SafeBoot\Network" /v SplashtopRemoteService /t REG_DWORD /d 0 /f
 
 #Ping with timestamp LOG
-Ping.exe -t 192.168.100.41 | ForEach {"{0} - {1}" -f (Get-Date),$_} > C:\Temp\Ping.txt
+Ping.exe -t 192.168.100.11 | ForEach {"{0} - {1}" -f (Get-Date),$_} > C:\Temp\Ping.txt
 
 #Transfer Area Clean or Clipboard Clean
 C:\Windows\System32\cmd.exe /c "echo off | clip"
@@ -115,3 +115,18 @@ Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' -nam
 Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' 'RegisteredOwner'
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\" -Name RegisteredOrganization -PropertyType String -Value EditoraMAS
 Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion' 'RegisteredOrganization'
+
+#Tamanho pastas 
+$targetfolder='C:\Users\'
+$dataColl = @()
+gci -force $targetfolder -ErrorAction SilentlyContinue | ? { $_ -is [io.directoryinfo] } | % {
+$len = 0
+gci -recurse -force $_.fullname -ErrorAction SilentlyContinue | % { $len += $_.length }
+$foldername = $_.fullname
+$foldersize= '{0:N2}' -f ($len / 1Gb)
+$dataObject = New-Object PSObject
+Add-Member -inputObject $dataObject -memberType NoteProperty -name “foldername” -value $foldername
+Add-Member -inputObject $dataObject -memberType NoteProperty -name “foldersizeGb” -value $foldersize
+$dataColl += $dataObject
+}
+$dataColl | Out-GridView -Title “Size of subdirectories”
