@@ -130,3 +130,4 @@ Add-Member -inputObject $dataObject -memberType NoteProperty -name “foldersize
 $dataColl += $dataObject
 }
 $dataColl | Out-GridView -Title “Size of subdirectories”
+
