@@ -131,3 +131,6 @@ $dataColl += $dataObject
 }
 $dataColl | Out-GridView -Title “Size of subdirectories”
 
+#Obter Hostnama através do IP
+$ipAddress= "0.0.0.0"
+[System.Net.Dns]::GetHostByAddress($ipAddress).Hostname
