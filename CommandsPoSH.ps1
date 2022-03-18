@@ -134,3 +134,9 @@ $dataColl | Out-GridView -Title “Size of subdirectories”
 #Obter Hostnama através do IP
 $ipAddress= "0.0.0.0"
 [System.Net.Dns]::GetHostByAddress($ipAddress).Hostname
+
+#Get Optional Features Windows 
+Get-WindowsOptionalFeature -Online | Out-GridView
+Get-WindowsOptionalFeature -Online -FeatureName tel*
+Get-WindowsOptionalFeature -Online -FeatureName TelnetClient
+Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient
