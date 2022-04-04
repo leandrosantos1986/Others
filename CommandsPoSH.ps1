@@ -135,8 +135,43 @@ $dataColl | Out-GridView -Title “Size of subdirectories”
 $ipAddress= "0.0.0.0"
 [System.Net.Dns]::GetHostByAddress($ipAddress).Hostname
 
+#IPs em Lote:
+$IPFILE = Get-Content C:\IP.txt
+$results=@()
+foreach ($IP in $IPFILE){
+$o=Resolve-DNSName $IP | Select-Object -Property @{name='IP';expression={$IP}}, NameHost
+$results+=$o
+}
+$results
+
+$IPFILE = Get-Content C:\temp\IPs.txt
+$results=@()
+foreach ($IP in $IPFILE){
+$o=Resolve-DNSName $IP | Select-Object -Property NameHost, @{name='IP';expression={$IP}}
+$results+=$o
+}
+$results
+#Fonte
+#https://techexpert.tips/pt-br/powershell-pt-br/powershell-traduzir-endereco-ip-para-hostname/
+
 #Get Optional Features Windows 
 Get-WindowsOptionalFeature -Online | Out-GridView
 Get-WindowsOptionalFeature -Online -FeatureName tel*
 Get-WindowsOptionalFeature -Online -FeatureName TelnetClient
 Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient
+
+#Obter GUID do user no AD corresponde a coluna ObjectGUID
+Get-ADUser -Filter * | Out-GridView -Title Users
+#Obter detalhes do objeto:
+$guid = "8C428A63-2680-4977-965C-123668EA9813"
+foreach ($dom in (Get-adforest).Domains) { Get-ADObject -filter {ObjectGUID -eq $guid } -Properties * -Server $dom | fl }
+
+#Obter Domínio em que a máquina está
+Get-WmiObject -Namespace root\cimv2 -Class Win32_ComputerSystem | Select Name, Domain
+
+#Obter modelo da máquina
+$((Get-WmiObject -Class win32_computersystem).Model)
+
+#Este comando exporta os drivers do Windows
+mkdir C:\Temp\Export-Drivers\$((Get-WmiObject -Class win32_computersystem).Model)
+$BackupDrv = dism /online /export-driver /destination:C:\Temp\Export-Drivers\$((Get-WmiObject -Class win32_computersystem).Model)
