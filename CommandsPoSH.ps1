@@ -175,3 +175,26 @@ $((Get-WmiObject -Class win32_computersystem).Model)
 #Este comando exporta os drivers do Windows
 mkdir C:\Temp\Export-Drivers\$((Get-WmiObject -Class win32_computersystem).Model)
 $BackupDrv = dism /online /export-driver /destination:C:\Temp\Export-Drivers\$((Get-WmiObject -Class win32_computersystem).Model)
+
+#Este comando lista os usuários da máquina:
+gwmi win32_UserAccount | Select Name, FullName, Caption, Domain, SID | Export-Csv C:\Temp\LocalUsers.csv
+#Este comando mostra a ultima vez logado com período em dias da consulta
+Get-LocalUser | Where-Object {$_.Lastlogon -ge (Get-Date).AddDays(-365)} | Select-Object Name,Enabled,SID,Lastlogon
+Get-LocalUser | Where-Object {$_.Lastlogon -ge (Get-Date).AddDays(-365)} | Select-Object Name,Enabled,SID,Lastlogon | Format-List
+
+#Este comando scaneia as portas de um IP:
+nmap -p 443 187.109.64.2
+nmap -p 80 187.109.64.0/20 | Out-File C:\Temp\187.109.64.0-20_opened80.csv
+nmap -p 443 187.109.64.0/20 | Out-File C:\Temp\187.109.64.0-20_opened443.csv
+
+#Obter todos Built-in Apps do Windows
+Get-AppxPackage | Select Name, PackageFullName >"$env:userprofile\Downloads\AppxPackage_List.txt"
+Get-AppxPackage | Select Name, PackageFullName >"$env:userprofile\Desktop\Apps_List.txt"
+
+Get-AppxPackage -AllUsers -PackageTypeFilter Bundle | Select-Object Name, PackageFullName >"$env:userprofile\Desktop\Provisioned_Apps_List.txt"
+
+#Download Files with PowerShell
+Start-Process -Path "https://dl.dell.com/FOLDER04239943M/3/Dell-WLAN-Radio-Switch-Driver_JK9WM_WIN_1.0.0.9_A05.EXE"
+[System.Diagnostics.Process]::Start("https://dl.dell.com/FOLDER04239943M/3/Dell-WLAN-Radio-Switch-Driver_JK9WM_WIN_1.0.0.9_A05.EXE")
+(New-Object -Com Shell.Application).Open("https://dl.dell.com/FOLDER04239943M/3/Dell-WLAN-Radio-Switch-Driver_JK9WM_WIN_1.0.0.9_A05.EXE")
+
