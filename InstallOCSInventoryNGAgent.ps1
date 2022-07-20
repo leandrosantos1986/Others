@@ -1,2 +1,3 @@
-﻿Write-Progress -Activity 'Installing OCS Inventory NG (64-bit)'  -PercentComplete (100/10 * 10)
-& '\\10.242.4.10\serverfiles\TOOLS\Ocs\OcsPackage.exe'
+version https://git-lfs.github.com/spec/v1
+oid sha256:36d0b6eb62716e196cb739aff031437fa04269dc34d7f3de3badce41114ed2b2
+size 153

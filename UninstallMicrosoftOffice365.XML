@@ -1,8 +1,3 @@
-<Configuration>
-    <Remove All="TRUE"/>
-    <Display Level="None" AcceptEULA="TRUE"/>
-    <Property Name="AUTOACTIVATE" Value="0"/>
-    <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
-    <Property Name="SharedComputerLicensing" Value="0"/>
-    <Property Name="PinIconsToTaskbar" Value="FALSE"/>
-</Configuration>
+version https://git-lfs.github.com/spec/v1
+oid sha256:49a1dd0a986ea945520c894ba64b85217433eab6f77cc71b90fdc62535809f41
+size 314

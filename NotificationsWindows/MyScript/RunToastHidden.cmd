@@ -1,2 +1,3 @@
-REM This file is intended to be used when the toast notification script is used with scheduled tasks with the Hidden.vbs file. See the documentation for further details
-powershell.exe -file "C:\ProgramData\ToastNotificationScript\PendingReboot\New-ToastNotification.ps1" -Config "\\YourNetworkPath\ToastNotificationScript\Configs\config-toast-pendingreboot.xml"
+version https://git-lfs.github.com/spec/v1
+oid sha256:4ae7164abeaae285e35247f0a86d1dece5f18657bcdbfacb1de7024f054210bf
+size 361

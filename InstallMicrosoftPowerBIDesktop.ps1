@@ -1,7 +1,3 @@
-﻿Write-Progress -Activity 'Installing Microsoft PowerBI (64-bit)' -PercentComplete (100/10 * 9)
-New-Item -Type directory -path "C:\Temp\Core\Programs\Microsoft PowerBI Desktop\" -Force
-wget 'https://download.microsoft.com/download/8/8/0/880BCA75-79DD-466A-927D-1ABF1F5454B0/PBIDesktopSetup_x64.exe' -OutFile 'C:\Temp\Core\Programs\Microsoft PowerBI Desktop\PBIDesktopSetup_x64.exe'
-& 'C:\Temp\Core\Programs\Microsoft PowerBI Desktop\PBIDesktopSetup_x64.exe' -q -passive ACCEPT_EULA=1
-
-#Link https://www.microsoft.com/pt-BR/download/details.aspx?id=58494
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:cad5d289876f86320122cfe37234ea856c13ef03ef4897f51ea5191387f31383
+size 557

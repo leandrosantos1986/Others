@@ -1,5 +1,3 @@
-﻿Write-Progress -Activity 'Installing Driver Pack Solution' -PercentComplete (100/10 * 9)
-New-Item -Type directory -path "C:\Temp\Core\Drivers\DriverPackSolution\" -Force
-wget 'http://dl.drp.su/17-online/DriverPack-17-Online.exe' -OutFile 'C:\Temp\Core\Drivers\DriverPackSolution\DriverPack-17-Online.exe'
-#Start-Sleep 60
-#& 'C:\Temp\Core\Drivers\DriverPackSolution\DriverPack-17-Online.exe' 
+version https://git-lfs.github.com/spec/v1
+oid sha256:6b661f6070991ad6c51dc7fac4b55e4220480469ed7d49f18cfd7f7bfb158f38
+size 395

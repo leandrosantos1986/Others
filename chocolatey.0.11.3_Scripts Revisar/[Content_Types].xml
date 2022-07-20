@@ -1,15 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
-  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml" />
-  <Default Extension="psmdcp" ContentType="application/vnd.openxmlformats-package.core-properties+xml" />
-  <Default Extension="ps1" ContentType="application/octet" />
-  <Default Extension="psm1" ContentType="application/octet" />
-  <Default Extension="txt" ContentType="application/octet" />
-  <Default Extension="exe" ContentType="application/octet" />
-  <Default Extension="ignore" ContentType="application/octet" />
-  <Default Extension="manifest" ContentType="application/octet" />
-  <Default Extension="cmd" ContentType="application/octet" />
-  <Default Extension="dll" ContentType="application/octet" />
-  <Default Extension="config" ContentType="application/octet" />
-  <Default Extension="nuspec" ContentType="application/octet" />
-</Types>
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e0943b2b30af92d54dcfa6e97a7c13521d6664e290b4c860432f80b629f5d35
+size 967

@@ -1,15 +1,3 @@
-Write-Progress -Activity 'Configurando OCS Inventory-NG' -Completed
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#OCS Inventory"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "10.242.6.14		ocsinventory-ng"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#MARIProject"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "10.242.6.21		vmpwk8ap01"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#SAP"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "10.242.7.11		vmpw8ksa01"
-Add-Contentd-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#TimeSheetSP"
-Add-Contentd-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "10.242.4.35		time2.geravd.com.br"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#EPM"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "10.242.4.35		epmpmo.geravd.com.br"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#WinCVS"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "192.168.2.6		cvs.clsoftware.com.br"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "#TFS"
-Add-Content -Encoding UTF8  "$($env:windir)\system32\Drivers\etc\hosts" "192.168.2.18	tfs.geravd.com.br"
+version https://git-lfs.github.com/spec/v1
+oid sha256:f9671ca58d4ae3df792163d7c2c45bc16cb85403bfa6ef4d69b0999ef32fecc1
+size 1395

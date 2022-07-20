@@ -1,31 +1,3 @@
-﻿function Analyze( $p, $f) {
-
-Get-ItemProperty $p |ForEach-Object {
-
-if (($_.DisplayName) -or ($_.version)) {
-
-[PSCustomObject]@{
-
-From = $f;
-
-Name = $_.DisplayName;
-
-Version = $_.DisplayVersion;
-
-Install = $_.InstallDate
-
-}
-
-}
-
-}
-
-}
-
-$s = @()
-
-$s += Analyze 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' 64
-
-$s += Analyze 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' 32
-
-$s | Sort-Object -Property Name |Export-Csv C:\Temp\InstalledPrograms_$(Get-Content env:computername).csv
+version https://git-lfs.github.com/spec/v1
+oid sha256:cff974d8aeba4f82f4ee1be75667868d26128a51d783b045f0108e77826bda92
+size 524

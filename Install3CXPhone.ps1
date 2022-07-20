@@ -1,6 +1,3 @@
-Write-Progress -Activity 'Installing SoftPhone 3CX' -PercentComplete (100/10 * 9)
-New-Item -Type directory -path "C:\Temp\Core\Programs\3CXPhone\" -Force
-wget 'https://www.3cx.com/downloads/3CXPhone6.msi' -OutFile 'C:\Temp\Core\Programs\3CXPhone\3CXPhone6.msi'
-& 'C:\Temp\Core\Programs\3CXPhone\3CXPhone6.msi' /qn
-
-#Link https://www.3cx.com/downloads/3CXPhone6.msi
+version https://git-lfs.github.com/spec/v1
+oid sha256:e10b856f23b6d5d8dcc3ad13facfe944e5d363920e76b39be8a5cd4ef6ec7fac
+size 364

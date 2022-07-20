@@ -1,17 +1,3 @@
-​ param([switch]$Elevated)
-function Check-Admin {
-$currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
-$currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
-}
-if ((Check-Admin) -eq $false)  {
-if ($elevated)
-{
-# could not elevate, quit
-}
-
-else {
-
-Start-Process powershell.exe -Verb RunAs -ArgumentList ('-noprofile -noexit -file "{0}" -elevated' -f ($myinvocation.MyCommand.Definition))
-}
-exit
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:442a44499505467b94b44f7a53d626bd211d970047712e62e9e2bca94eb4e5b4
+size 483

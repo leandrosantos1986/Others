@@ -1,1 +1,3 @@
-CheckSum is licensed as Apache v2 - https://raw.github.com/ferventcoder/checksum/master/LICENSE
+version https://git-lfs.github.com/spec/v1
+oid sha256:29472b6be2f4e7134f09cc2fadf088cb87089853b383ca4af29c19cc8dfc1a62
+size 95

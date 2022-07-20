@@ -1,11 +1,3 @@
-$UsersDisableAD=Get-Content C:\Temp\UsersDisableAD.txt
-
-ForEach ($user in $UsersDisableAD)
-
-{
-
-Disable-ADAccount -Identity $user
-
-write-host "user $($user) has been disabled"
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e241cca40f57a3d06c2a9da831d120f87db7f73de5e65dc6246641c69ea0e0b6
+size 177

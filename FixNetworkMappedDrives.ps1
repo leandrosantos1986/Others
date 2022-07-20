@@ -1,17 +1,3 @@
-$i=3
-while($True){
-    $error.clear()
-    $MappedDrives = Get-SmbMapping |where -property Status -Value Unavailable -EQ | select LocalPath,RemotePath
-    foreach( $MappedDrive in $MappedDrives)
-    {
-        try {
-            New-SmbMapping -LocalPath $MappedDrive.LocalPath -RemotePath $MappedDrive.RemotePath -Persistent $True
-        } catch {
-            Write-Host "There was an error mapping $MappedDrive.RemotePath to $MappedDrive.LocalPath"
-        }
-    }
-    $i = $i - 1
-    if($error.Count -eq 0 -Or $i -eq 0) {break}
-
-    Start-Sleep -Seconds 30
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:03d9cefdb2d5260fb1cc81b1015675db2227d3abed01f2ebee7528179c9a9726
+size 559

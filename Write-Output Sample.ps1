@@ -1,4 +1,3 @@
-Write-Output 'PERFIL USER:
-              Nao se esqueca de deixar o 7-Zip como padrao:
-              Clicando em > Ferramentas > Opcoes > Aba "Sistema" > Clique no botao "+" para todos usuarios e usuario corrente. ' | Out-GridView -PassThru  -Title 'PERFIL USER'
-& "C:\Program Files\7-Zip\7zFM.exe"
+version https://git-lfs.github.com/spec/v1
+oid sha256:7bc8ad47e85a27a3b6f22790454a0ef1002c3d98375b44bde2f7e91261461e48
+size 298
