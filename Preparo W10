@@ -1,0 +1,104 @@
+
+
+Executar Powershell como administrador
+
+Set-ExecutionPolicy Unrestricted -Force
+
+#Desativar UAC:
+
+  <#
+        .SYNOPSIS
+            Disable UAC though powershell
+
+        .DESCRIPTION
+            Disable UAC though powershell
+#>
+
+$osversion = (Get-CimInstance Win32_OperatingSystem).Version
+$version = $osversion.split(".")[0]
+
+if ($version -eq 10) {
+	Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value "0"
+} ElseIf ($Version -eq 6) {
+	$sub = $version.split(".")[1]
+    if ($sub -eq 1 -or $sub -eq 0) {
+		Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value "0"
+    } Else {
+		Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value "0"
+    }
+} ElseIf ($Version -eq 5) {
+	Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value "0"
+} Else {
+	Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value "0"
+}
+____________________________________________________________________________________________________________________________________________
+
+- Desativar SysMain:
+Set-Service -Name "SysMain" -StartupType Disabled
+Stop-Service -Force -Name "SysMain"
+
+- Desativar Experiência Telemetria Usuário:
+Set-Service -Name "DiagTrack" -StartupType Disabled
+Stop-Service -Force -Name "DiagTrack"
+
+- Desativar Backup do Windows:
+Set-Service -Name "SDRSVC" -StartupType Disabled
+Stop-Service -Force -Name "SDRSVC"
+
+- habilitar descoberta de rede
+
+- remover perfil openvpn
+- habilitar conexão remota
+- ajustar para melhor desempenho
+- Remover Memoria Virtual
+- powercfg.exe /hibernate off
+- Tornar padrão 7-zip
+- Tornar padrão Adobe PDF
+- Tornar padrão Chrome
+- importar servidor openvpn
+- Parar aplicativos rodando em segundo plano
+
+Após atualizar/reiniciar:
+- remover apps win10 (3 - )
+- Limpeza de Disco como Adm
+- Limpar Temp
+- Limpar %temp%
+- Limpar Prefetch
+
+
+
+
+https://www.windowsafg.com/
+
+
+
+- Colocar papel de parede (precisa ativar)
+- Colocar bloqueio de tela (W10) (precisa ativar)
+
+
+sc stop DiagTrack
+sc stop SysMain
+sc config SysMain start= disabled
+sc config DiagTrack start= disabled
+sc config SDRSVC start= disabled
+SDRSVC
+
+
+
+
+Set-Service -Name "SysMain" -StartupType Disabled
+Stop-Service -Force -Name "SysMain"
+
+Set-Service -Name "DiagTrack" -StartupType Disabled
+Stop-Service -Force -Name "DiagTrack"
+
+Set-Service -Name "SDRSVC" -StartupType Disabled
+Stop-Service -Force -Name "SDRSVC"
+
+
+
+
+
+REG ADD “hklm\software\policies\microsoft\windows defender” /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+
+REG ADD HKCU\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications /v GlobalUserDisabled /t REG_DWORD /d 1 /f
